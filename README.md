@@ -12,8 +12,9 @@ Build:
 
 ```bash
 docker build --rm -t adrijab/my-datascience-notebook .
-docker image ls
-# Should explain how to build the image, including tagging it
+#This uses the public image for jupyter datascience notebook.
+# This image was tagged using the code:
+docker tag jupyter/my-datascience-notebook adrijab/my-datascience-notebook
 ```
 
 Run:
@@ -32,7 +33,5 @@ Build and run:
 
 ```bash
 docker-compose up
-# - It should publish port 8888
-# - It should mount the local directory as a volume in the container's
-#   home directory
+# - This command publishs through port 8888 and custom image adrijab/my-datascience-notebook
 ```
