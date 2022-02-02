@@ -1,6 +1,6 @@
 # Security-Notebooks
 
-This repo houses all Notebooks for the Security Analysis Class of '2022'
+This repo houses all Notebooks for the Security Analysis Class[MSBX 5500] of '2022'
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Adrija-B/Security-Notebooks/HEAD)
 
@@ -12,8 +12,11 @@ Build:
 
 ```bash
 docker build --rm -t adrijab/my-datascience-notebook .
-#This uses the public image for jupyter datascience notebook.
-# This image was tagged using the code:
+#This uses the custom image for jupyter datascience notebook, as built on dockerhub.
+```
+
+```bash
+#The original image 'jupyter/my-datascience-notebook' had the <i>2022-01-24</i> tag and was retagged as adrijab/my-datascience-notebook, using the following code.
 docker tag jupyter/my-datascience-notebook adrijab/my-datascience-notebook
 ```
 
@@ -33,5 +36,5 @@ Build and run:
 
 ```bash
 docker-compose up
-# - This command publishs through port 8888 and custom image adrijab/my-datascience-notebook
+# - This command publishes through port 8888 and custom image adrijab/my-datascience-notebook
 ```
