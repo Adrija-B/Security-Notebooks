@@ -1,6 +1,6 @@
 # Security-Notebooks
 
-This repo houses all my Notebooks for the Security Analysis Class[MSBX 5500] of 2022
+This repo houses all my Datascience Notebooks for the Security Analysis Class[MSBX 5500] of 2022
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Adrija-B/Security-Notebooks/HEAD)
 
