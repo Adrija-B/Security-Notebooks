@@ -11,6 +11,4 @@ Build and run:
 
 ```bash
 docker-compose up
-# This command publishes through port 8888 and custom image adrijab/my-datascience-notebook, as defined in the docker-compose.yml file
-#Run this command from the repository terminal/command prompt to build your own container 
 ```
