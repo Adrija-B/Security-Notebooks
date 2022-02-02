@@ -1,4 +1,4 @@
-# Start from a core stack version
+# Start from a core stack version. Here we use the jupyter/datascience-notebook with tag 2022-01-24
 
 FROM jupyter/datascience-notebook:2022-01-24
 
