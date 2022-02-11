@@ -4,6 +4,6 @@ services:
     build: .
     image: adrijab/my-datascience-notebook #My Docker Image
     ports:
-      - "8888:8888"
+      - "10000:8888"
     volumes:
       - .:/home/jovyan/work
