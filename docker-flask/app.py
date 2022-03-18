@@ -1,11 +1,59 @@
 from flask import Flask, jsonify, request
+import pickle
+import sys
 
 app = Flask(__name__)
 
+#if this file is being run directly, as opposed to being
+#imported by another python file
+#if __name__ == "__main__":
+    #app.run()
+
+
+#Functions--------------------------------------------------------
+def load_model():
+    with open('clf.pickle','rb') as f:
+        clf_loaded = pickle.load(f)
+    return clf_loaded
+
+
+
+
+
+
+#Routes--------------------------------------------------------
 @app.route("/") # @ sign wraps the code for the route
 def hello_world():
     return "<p>Hello, World!</p> Adri"
 
+
+@app.route('/ping', methods=['GET'])
+def ping_pong():
+    return jsonify('pong!')
+
+
+model = None
+
+model = load_model()
+
+@app.route('/predict', methods=[ 'POST'])
+def predict():
+    """
+    "expects request.get_json to return a string that expects a valid url"
+    """
+
+    response_object = {'status': 'success'}
+    if request.method == 'POST':
+        url = request.get_json()
+        length = len(url)
+        prediction = model.predict_proba([[length]])
+        print(prediction, file = sys.stderr)
+        response_object['prediction'] = prediction.tolist()[0][1]
+    return jsonify(response_object)
+
+
+
+#Notes--------------------------------------------------------
 # venv/Scripts/Activate.ps1
 
 
@@ -17,16 +65,15 @@ def hello_world():
     #predictions = [[1]]
 
 
-@app.route('/ping', methods=['GET'])
-def ping_pong():
-    return jsonify('pong!')
+#SIGHUP
+#SIGHKILL
+
+#while True:
+#    pass # placeholder for continue
 
 
+#socket.serve()#while True:
+#    pass # placeholder for continue
 
-@app.route('/predict', methods=[ 'POST'])
-def predict():
-    response_object = {'status': 'success'}
-    if request.method == 'POST':
-        post_data = request.get_json()
-        response_object['message'] = post_data
-    return jsonify(response_object)
+
+#socket.serve()
